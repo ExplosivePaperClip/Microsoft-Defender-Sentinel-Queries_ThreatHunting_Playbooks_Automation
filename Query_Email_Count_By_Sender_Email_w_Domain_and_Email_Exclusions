@@ -1,4 +1,4 @@
-\\ This allows you to add entire email domains, or specific email addresses to whitelist so they are not included in the output results. 
+\\ This allows you to add entire email domains, or specific email addresses to whitelist so they are not included in the output results. You can change the timespan and the minimal email count numbers.
 let ExcludedDomains = dynamic(["@domain.com", ""]);
 let excludedEmails = dynamic(["email@address.com", ""]);
 EmailEvents
