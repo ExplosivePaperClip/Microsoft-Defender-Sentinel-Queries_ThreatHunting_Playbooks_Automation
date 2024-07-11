@@ -1,0 +1,9 @@
+let ExcludedDomains = dynamic(["@domain.com", ""]);
+let excludedEmails = dynamic(["email@address.com", ""]);
+EmailEvents
+| where Timestamp >= ago(1h)
+| where not(tolower(split(SenderFromAddress, "@")[1]) in (ExcludedDomains))
+| where not(SenderFromAddress in (excludedEmails))
+| summarize EmailCount = count() by SenderFromAddress
+| where EmailCount >500
+| project SenderFromAddress, EmailCount
